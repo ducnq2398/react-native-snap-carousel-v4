@@ -1,5 +1,5 @@
 {
-  "name": "react-native-snap-carousel-v4",
+  "name": "@ducnq2398/react-native-snap-carousel-v4",
   "version": "1.0.0",
   "description": "Swiper/carousel component for React Native featuring previews, multiple layouts, parallax images, performant handling of huge numbers of items, and more. TypeScript rewrite compatible with latest React Native.",
   "main": "lib/index.js",
