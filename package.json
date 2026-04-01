@@ -1,0 +1,49 @@
+{
+  "name": "react-native-snap-carousel-v4",
+  "version": "1.0.0",
+  "description": "Swiper/carousel component for React Native featuring previews, multiple layouts, parallax images, performant handling of huge numbers of items, and more. TypeScript rewrite compatible with latest React Native.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "react-native",
+    "carousel",
+    "swiper",
+    "snap",
+    "parallax",
+    "flatlist",
+    "scrollview",
+    "typescript"
+  ],
+  "author": "",
+  "license": "BSD-3-Clause",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.71.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.72.0",
+    "react": "^18.2.0",
+    "react-native": "^0.73.0",
+    "typescript": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ducnq2398/react-native-snap-carousel-v4"
+  },
+  "homepage": "https://github.com/ducnq2398/react-native-snap-carousel-v4#readme",
+  "bugs": {
+    "url": "https://github.com/ducnq2398/react-native-snap-carousel-v4/issues"
+  }
+}
