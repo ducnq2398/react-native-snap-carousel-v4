@@ -32,8 +32,8 @@ yarn add @ducnq2398/react-native-snap-carousel-v4
 ```diff
 - import Carousel from 'react-native-snap-carousel';
 - import { Pagination, ParallaxImage } from 'react-native-snap-carousel';
-+ import Carousel from 'react-native-snap-carousel-v4';
-+ import { Pagination, ParallaxImage } from 'react-native-snap-carousel-v4';
++ import Carousel from '@ducnq2398/react-native-snap-carousel-v4';
++ import { Pagination, ParallaxImage } from '@ducnq2398/react-native-snap-carousel-v4';
 ```
 
 ### 2. Remove @types package
@@ -53,8 +53,8 @@ The API is fully backward-compatible. All existing props, methods, and callbacks
 ```tsx
 import React, { useRef } from "react";
 import { View, Text, Dimensions } from "react-native";
-import Carousel from "react-native-snap-carousel-v4";
-import type { CarouselRenderItemInfo } from "react-native-snap-carousel-v4";
+import Carousel from "@ducnq2398/react-native-snap-carousel-v4";
+import type { CarouselRenderItemInfo } from "@ducnq2398/react-native-snap-carousel-v4";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -100,7 +100,7 @@ const MyCarousel: React.FC = () => {
 ### With Pagination
 
 ```tsx
-import Carousel, { Pagination } from "react-native-snap-carousel-v4";
+import Carousel, { Pagination } from "@ducnq2398/react-native-snap-carousel-v4";
 
 const MyCarouselWithPagination: React.FC = () => {
   const [activeSlide, setActiveSlide] = React.useState(0);
@@ -134,7 +134,9 @@ const MyCarouselWithPagination: React.FC = () => {
 ### With Parallax Images
 
 ```tsx
-import Carousel, { ParallaxImage } from "react-native-snap-carousel-v4";
+import Carousel, {
+  ParallaxImage,
+} from "@ducnq2398/react-native-snap-carousel-v4";
 
 const renderItem = (
   { item }: CarouselRenderItemInfo<MyItem>,
