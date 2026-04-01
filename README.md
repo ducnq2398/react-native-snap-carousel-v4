@@ -18,9 +18,9 @@ Swiper/carousel component for React Native featuring previews, multiple layouts,
 ## 📦 Installation
 
 ```bash
-npm install react-native-snap-carousel-v4
+npm install @ducnq2398/react-native-snap-carousel-v4
 # or
-yarn add react-native-snap-carousel-v4
+yarn add @ducnq2398/react-native-snap-carousel-v4
 ```
 
 **No need to install `@types/react-native-snap-carousel`** — types are included!
@@ -51,12 +51,12 @@ The API is fully backward-compatible. All existing props, methods, and callbacks
 ### Basic Example
 
 ```tsx
-import React, { useRef } from 'react';
-import { View, Text, Dimensions } from 'react-native';
-import Carousel from 'react-native-snap-carousel-v4';
-import type { CarouselRenderItemInfo } from 'react-native-snap-carousel-v4';
+import React, { useRef } from "react";
+import { View, Text, Dimensions } from "react-native";
+import Carousel from "react-native-snap-carousel-v4";
+import type { CarouselRenderItemInfo } from "react-native-snap-carousel-v4";
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get("window");
 
 interface CarouselItem {
   title: string;
@@ -67,14 +67,17 @@ const MyCarousel: React.FC = () => {
   const carouselRef = useRef<Carousel<CarouselItem>>(null);
 
   const data: CarouselItem[] = [
-    { title: 'Item 1', text: 'Description 1' },
-    { title: 'Item 2', text: 'Description 2' },
-    { title: 'Item 3', text: 'Description 3' },
+    { title: "Item 1", text: "Description 1" },
+    { title: "Item 2", text: "Description 2" },
+    { title: "Item 3", text: "Description 3" },
   ];
 
-  const renderItem = ({ item, index }: CarouselRenderItemInfo<CarouselItem>) => {
+  const renderItem = ({
+    item,
+    index,
+  }: CarouselRenderItemInfo<CarouselItem>) => {
     return (
-      <View style={{ backgroundColor: 'white', borderRadius: 8, padding: 20 }}>
+      <View style={{ backgroundColor: "white", borderRadius: 8, padding: 20 }}>
         <Text style={{ fontSize: 20 }}>{item.title}</Text>
         <Text>{item.text}</Text>
       </View>
@@ -88,7 +91,7 @@ const MyCarousel: React.FC = () => {
       renderItem={renderItem}
       sliderWidth={screenWidth}
       itemWidth={screenWidth * 0.75}
-      layout={'default'}
+      layout={"default"}
     />
   );
 };
@@ -97,7 +100,7 @@ const MyCarousel: React.FC = () => {
 ### With Pagination
 
 ```tsx
-import Carousel, { Pagination } from 'react-native-snap-carousel-v4';
+import Carousel, { Pagination } from "react-native-snap-carousel-v4";
 
 const MyCarouselWithPagination: React.FC = () => {
   const [activeSlide, setActiveSlide] = React.useState(0);
@@ -114,7 +117,12 @@ const MyCarouselWithPagination: React.FC = () => {
       <Pagination
         dotsLength={data.length}
         activeDotIndex={activeSlide}
-        dotStyle={{ width: 10, height: 10, borderRadius: 5, backgroundColor: 'rgba(0, 0, 0, 0.92)' }}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          backgroundColor: "rgba(0, 0, 0, 0.92)",
+        }}
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
       />
@@ -126,9 +134,12 @@ const MyCarouselWithPagination: React.FC = () => {
 ### With Parallax Images
 
 ```tsx
-import Carousel, { ParallaxImage } from 'react-native-snap-carousel-v4';
+import Carousel, { ParallaxImage } from "react-native-snap-carousel-v4";
 
-const renderItem = ({ item }: CarouselRenderItemInfo<MyItem>, parallaxProps?: ParallaxProps) => {
+const renderItem = (
+  { item }: CarouselRenderItemInfo<MyItem>,
+  parallaxProps?: ParallaxProps,
+) => {
   return (
     <View style={{ width: itemWidth, height: 200 }}>
       <ParallaxImage
@@ -147,7 +158,7 @@ const renderItem = ({ item }: CarouselRenderItemInfo<MyItem>, parallaxProps?: Pa
   hasParallaxImages={true}
   sliderWidth={screenWidth}
   itemWidth={screenWidth * 0.75}
-/>
+/>;
 ```
 
 ### Layouts
@@ -167,67 +178,67 @@ const renderItem = ({ item }: CarouselRenderItemInfo<MyItem>, parallaxProps?: Pa
 
 ### Required Props
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `data` | `T[]` | Array of items to loop on |
-| `renderItem` | `CarouselRenderItem<T>` | Function to render each item |
-| `itemWidth` | `number` | Width of carousel items (horizontal) |
-| `sliderWidth` | `number` | Width of the carousel (horizontal) |
-| `itemHeight` | `number` | Height of carousel items (vertical) |
-| `sliderHeight` | `number` | Height of the carousel (vertical) |
+| Prop           | Type                    | Description                          |
+| -------------- | ----------------------- | ------------------------------------ |
+| `data`         | `T[]`                   | Array of items to loop on            |
+| `renderItem`   | `CarouselRenderItem<T>` | Function to render each item         |
+| `itemWidth`    | `number`                | Width of carousel items (horizontal) |
+| `sliderWidth`  | `number`                | Width of the carousel (horizontal)   |
+| `itemHeight`   | `number`                | Height of carousel items (vertical)  |
+| `sliderHeight` | `number`                | Height of the carousel (vertical)    |
 
 ### Behavior
 
-| Prop | Type | Default |
-|------|------|---------|
-| `activeSlideOffset` | `number` | `20` |
-| `enableMomentum` | `boolean` | `false` |
-| `enableSnap` | `boolean` | `true` |
-| `firstItem` | `number` | `0` |
+| Prop                      | Type      | Default |
+| ------------------------- | --------- | ------- |
+| `activeSlideOffset`       | `number`  | `20`    |
+| `enableMomentum`          | `boolean` | `false` |
+| `enableSnap`              | `boolean` | `true`  |
+| `firstItem`               | `number`  | `0`     |
 | `lockScrollWhileSnapping` | `boolean` | `false` |
-| `loop` | `boolean` | `false` |
-| `loopClonesPerSide` | `number` | `3` |
-| `vertical` | `boolean` | `false` |
+| `loop`                    | `boolean` | `false` |
+| `loopClonesPerSide`       | `number`  | `3`     |
+| `vertical`                | `boolean` | `false` |
 
 ### Autoplay
 
-| Prop | Type | Default |
-|------|------|---------|
-| `autoplay` | `boolean` | `false` |
-| `autoplayDelay` | `number` | `1000` |
-| `autoplayInterval` | `number` | `3000` |
+| Prop               | Type      | Default |
+| ------------------ | --------- | ------- |
+| `autoplay`         | `boolean` | `false` |
+| `autoplayDelay`    | `number`  | `1000`  |
+| `autoplayInterval` | `number`  | `3000`  |
 
 ### Style & Animation
 
-| Prop | Type | Default |
-|------|------|---------|
-| `layout` | `'default' \| 'stack' \| 'tinder'` | `'default'` |
-| `layoutCardOffset` | `number` | `18` / `9` |
-| `inactiveSlideOpacity` | `number` | `0.7` |
-| `inactiveSlideScale` | `number` | `0.9` |
-| `activeSlideAlignment` | `'start' \| 'center' \| 'end'` | `'center'` |
-| `containerCustomStyle` | `StyleProp<ViewStyle>` | `{}` |
-| `contentContainerCustomStyle` | `StyleProp<ViewStyle>` | `{}` |
+| Prop                          | Type                               | Default     |
+| ----------------------------- | ---------------------------------- | ----------- |
+| `layout`                      | `'default' \| 'stack' \| 'tinder'` | `'default'` |
+| `layoutCardOffset`            | `number`                           | `18` / `9`  |
+| `inactiveSlideOpacity`        | `number`                           | `0.7`       |
+| `inactiveSlideScale`          | `number`                           | `0.9`       |
+| `activeSlideAlignment`        | `'start' \| 'center' \| 'end'`     | `'center'`  |
+| `containerCustomStyle`        | `StyleProp<ViewStyle>`             | `{}`        |
+| `contentContainerCustomStyle` | `StyleProp<ViewStyle>`             | `{}`        |
 
 ### Callbacks
 
-| Prop | Type |
-|------|------|
-| `onSnapToItem` | `(slideIndex: number) => void` |
-| `onBeforeSnapToItem` | `(slideIndex: number) => void` |
-| `onScroll` | `(event: NativeSyntheticEvent<NativeScrollEvent>) => void` |
+| Prop                 | Type                                                       |
+| -------------------- | ---------------------------------------------------------- |
+| `onSnapToItem`       | `(slideIndex: number) => void`                             |
+| `onBeforeSnapToItem` | `(slideIndex: number) => void`                             |
+| `onScroll`           | `(event: NativeSyntheticEvent<NativeScrollEvent>) => void` |
 
 ## 🔧 Methods
 
-| Method | Description |
-|--------|-------------|
-| `snapToItem(index, animated?, fireCallback?)` | Snap to item |
-| `snapToNext(animated?, fireCallback?)` | Snap to next |
-| `snapToPrev(animated?, fireCallback?)` | Snap to previous |
-| `startAutoplay()` | Start autoplay |
-| `stopAutoplay()` | Stop autoplay |
-| `currentIndex` | Get current active item index |
-| `currentScrollPosition` | Get current scroll position |
+| Method                                        | Description                   |
+| --------------------------------------------- | ----------------------------- |
+| `snapToItem(index, animated?, fireCallback?)` | Snap to item                  |
+| `snapToNext(animated?, fireCallback?)`        | Snap to next                  |
+| `snapToPrev(animated?, fireCallback?)`        | Snap to previous              |
+| `startAutoplay()`                             | Start autoplay                |
+| `stopAutoplay()`                              | Stop autoplay                 |
+| `currentIndex`                                | Get current active item index |
+| `currentScrollPosition`                       | Get current scroll position   |
 
 ## 📝 Types
 
@@ -245,7 +256,7 @@ import type {
   ActiveSlideAlignment,
   ScrollInterpolatorFunction,
   SlideInterpolatedStyleFunction,
-} from 'react-native-snap-carousel-v4';
+} from "react-native-snap-carousel-v4";
 ```
 
 ## 🙏 Credits
